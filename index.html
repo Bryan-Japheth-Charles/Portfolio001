@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bryan Japheth Charles - Portfolio</title>
+  <link rel="icon" href="images/BJClogo.jpg" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    :root {
+      --accent: #007bff;
+      --accent-light: rgba(0, 123, 255, 0.1);
+      --text-color: #212529;
+      --bg-color: #f8f9fa;
+      --dark-bg: #1a202c;
+      --card-bg: #ffffff;
+      --border-color: #dee2e6;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --border-radius: 12px;
+      --header-height: 72px;
+      --max-width: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+
+    html { scroll-behavior: smooth; }
+
+    body { background: var(--bg-color); color: var(--text-color); line-height: 1.7; }
+
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--dark-bg); color: #fff;
+      padding: 0 1.25rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container {
+      max-width: var(--max-width); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: var(--header-height);
+    }
+
+    .brand h1 { font-size: 1.1rem; letter-spacing: 0.8px; font-weight: 700; }
+    .brand p { font-size: 0.8rem; opacity: 0.8; }
+
+    nav a {
+      color: #e6f3fb; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      padding: 0.5rem 0.8rem; border-radius: 8px; transition: all 0.2s ease-in-out;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px); color: var(--accent); background: var(--accent-light);
+    }
+
+    nav a.active { background: var(--accent-light); color: var(--accent); }
+
+    main { max-width: 900px; margin: 2.5rem auto; padding: 0 1rem; }
+
+    section {
+      background: var(--card-bg); margin-bottom: 2rem; padding: 2rem;
+      border-radius: var(--border-radius); box-shadow: var(--shadow);
+      scroll-margin-top: calc(var(--header-height) + 20px);
+    }
+
+    section h2 {
+      color: var(--dark-bg); font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem;
+      padding-bottom: 0.5rem; border-bottom: 3px solid var(--accent); display: inline-block;
+    }
+
+    #about p { text-align: center; font-size: 1.05rem; color: #555; }
+    #about img {
+      display: block; margin: 0 auto 1.5rem; border-radius: 50%;
+      border: 5px solid var(--accent); box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+    }
+
+    #projects article {
+      margin-top: 1.5rem; padding: 1rem 0 1rem 1.5rem; border-left: 3px solid var(--accent-light);
+      transition: border-color 0.3s;
+    }
+
+    #projects article:hover { border-left-color: var(--accent); }
+
+    article h3, article h5 { color: var(--dark-bg); margin-bottom: 0.5rem; font-weight: 600; }
+    article h5 { font-size: 1.1rem; color: var(--accent); }
+
+    ul { list-style: none; }
+    ul li { padding: 0.4rem 0; color: #333; display: flex; align-items: center; }
+
+    #personal ul li::before, #certificates ul li::before, .mini-projects-list li::before {
+      font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: 12px; color: var(--accent); width: 20px; text-align: center;
+    }
+
+    #personal li:nth-child(1)::before { content: '\f1fd'; }
+    #personal li:nth-child(2)::before { content: '\f3c5'; }
+    #personal li:nth-child(3)::before { content: '\f0e0'; }
+    #personal li:nth-child(4)::before { content: '\f095'; }
+    #personal li:nth-child(5)::before { content: '\f08c'; }
+    #personal li:nth-child(6)::before { content: '\f09b'; }
+
+    #certificates li::before { content: '\f559'; }
+    .mini-projects-list li::before { content: '\f121'; }
+
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    img { max-width: 100%; height: auto; }
+
+    @media (max-width: 820px) {
+      .brand p { display: none; }
+      nav a { padding: 0.4rem 0.5rem; }
+      section { padding: 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 0.95rem; }
+      header .header-container { flex-direction: column; align-items: flex-start; height: auto; padding: 0.8rem 0; }
+      .brand h1 { font-size: 1rem; }
+      nav { width: 100%; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+      nav a { font-size: 0.85rem; margin: 0.2rem; padding: 0.4rem 0.6rem; }
+      section { padding: 1rem; }
+      section h2 { font-size: 1.2rem; }
+      article h3 { font-size: 1rem; }
+    }
+
+    #backToTop {
+      position: fixed; right: 26px; bottom: 26px; width: 48px; height: 48px;
+      display: none; place-items: center; border-radius: 50%; background: var(--accent);
+      color: #fff; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); cursor: pointer; z-index: 1100;
+      font-size: 1.5rem; transition: transform 0.2s; text-align: center; line-height: 48px;
+    }
+    #backToTop:hover { transform: scale(1.1); }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <h1>BRYAN JAPHETH CHARLES</h1>
+        <p>Artificial Intelligence & Data Science Aspirant</p>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#personal">Personal</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <img src="images/Me.jpg" alt="BRYAN JAPHETH CHARLES" width="150">
+      <p>
+        I’m a 3rd-year B.Tech Computer Science student specializing in AI and Data Science. I have strong skills in data analytics, machine learning, and deep learning, and I am passionate about transforming data into actionable insights. I am seeking internship opportunities where I can contribute effectively, collaborate with a team, and continue growing as a professional. Let’s connect to explore potential collaborations.
+      </p>
+    </section>
+
+    <section id="personal">
+      <h2>Personal Info</h2>
+      <ul>
+        <li><strong>Date of Birth:</strong> 30/08/2005</li>
+        <li><strong>Location:</strong> Chennai, India</li>
+        <li><strong>Email:</strong> <a href="mailto:bryanjaphethc@gmail.com">bryanjaphethc@gmail.com</a></li>
+        <li><strong>Phone:</strong> +91-8088979250</li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bryan-japheth-charles-96539b301/" target="_blank">Profile</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/Bryan-Japheth-Charles" target="_blank">Bryan-Japheth-Charles</a></li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <article>
+        <h5>B.Tech in Computer Science and Engineering</h5>
+        <p>Bharath Institute of Higher Education and Research<br>2023 - Present | CGPA: 9.2/10</p>
+      </article>
+      <article>
+        <h5>Data Science Programme</h5>
+        <p>upGrad Campus<br>2023 - Present</p>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p>
+        <strong>Programming:</strong> Python, Java, SQL, C, C++, DSA.<br>
+        <strong>Tools & Libraries:</strong> NumPy, Pandas, Matplotlib, scikit-learn, Tableau, Seaborn.<br>
+        <strong>Other Skills:</strong> Data Analytics, Machine Learning, Deep Learning
+    </p>
+
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <article>
+        <h3>Implementation Of ANN To Predict The Wear Rate In Polymer Composites Using Experimental Database</h3>
+        <p>Developed a Single Layer and Multi-Layer Perceptron (MLP) model to predict wear rates in polymer composites for Bharath University (Aero Department), reducing the need for costly and time-consuming experimental testing in aerospace and automotive industries.</p>
+      </article>
+
+      <article>
+        <h3>Flight Delay Prediction and Analysis</h3>
+        <p>Engineered an end-to-end ML pipeline achieving 85% accuracy in predicting flight delays. Created interactive dashboards for data-driven insights after extensive EDA and feature engineering.</p>
+        <a href="https://github.com/Bryan-Japheth-Charles/Matplotlib-Airplane-Crash-Analysis" target="_blank">View on GitHub</a>
+      </article>
+
+      <article>
+        <h3>Loan Data Analysis</h3>
+        <p>Cleaned a massive loan dataset, engineered key financial features, and built an interactive Tableau dashboard to visualize borrower risk, repayment behavior, and lending patterns.</p>
+        <a href="https://github.com/Bryan-Japheth-Charles/Loan-Data-Analysis/tree/main" target="_blank">View on GitHub</a>
+      </article>
+
+      <article>
+        <h3>Covid-19 Clinical Analysis</h3>
+        <p>Analyzed complex COVID-19 patient data to identify key predictors of mortality and hospitalization. Developed a Tableau dashboard to visualize comorbidity trends and patient profiles.</p>
+        <a href="https://github.com/Bryan-Japheth-Charles/COVID-19-Analysis" target="_blank">View on GitHub</a>
+      </article>
+
+      <article>
+        <h3>Historical Flight Crash Analysis (1918-2022)</h3>
+        <p>Cleaned and analyzed over a century of flight crash data, visualizing trends by decade, aircraft type, and cause using Matplotlib to identify historical patterns and safety insights.</p>
+        <a href="https://github.com/Bryan-Japheth-Charles/Matplotlib-Airplane-Crash-Analysis" target="_blank">View on GitHub</a>
+      </article>
+
+      <article>
+        <h3>Other Mini Projects</h3>
+        <ul class="mini-projects-list">
+          <li>Dog–Cat classification using CNN</li>
+          <li>Coffee shop analysis using Excel</li>
+          <li>Aircraft data ADC using ANN</li>
+          <li>Movies Review Analysis</li>
+          <li>Flight Delay Analysis</li>
+          <li>Cristiano Ronaldo's Real Madrid Career Analysis</li>
+          <li>Netflix Data Analysis</li>
+          <li>GUI based Java App for online class</li>
+          <li>Tic-Tac-Toe Game using Python</li>
+          <li>Flappy Bird Game using Python</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="certificates">
+      <h2>Certificates</h2>
+      <ul>
+        <li>Machine Learning with Python - <strong>IBM</strong></li>
+        <li>Microsoft Data Analyst 101 - <strong>Microsoft</strong></li>
+        <li>Deep Learning with TensforFlow - <strong>IBM</strong></lli>
+        <li>Convolutional Neural Network and Computer Vision - <strong>Udemy</strong></li>
+        <li>Core Java - <strong>Alpha Technobotics, K.G.F</strong></li>
+        <li>Python - <strong>Alpha Technobotics, K.G.F</strong></li>
+        <li>AI/ML for Crop Acreage Workshop - <strong>ISRO</strong></li>
+      </ul>
+    </section>
+  </main>
+
+  <div id="backToTop" title="Back to top">↑</div>
+
+  <script>
+    (function() {
+      const header = document.querySelector('header');
+      const root = document.documentElement;
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav a');
+      const backBtn = document.getElementById('backToTop');
+
+      function updateHeaderHeight() {
+        const h = header.offsetHeight || 72;
+        root.style.setProperty('--header-height', h + 'px');
+      }
+
+      window.addEventListener('load', updateHeaderHeight);
+      window.addEventListener('resize', updateHeaderHeight);
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+
+          const headerOffset = header.offsetHeight + 20;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        });
+      });
+
+      function highlightNav() {
+        let fromTop = window.scrollY + header.offsetHeight + 50;
+        let currentId = '';
+
+        sections.forEach(sec => {
+          if (sec.offsetTop <= fromTop) { currentId = '#' + sec.id; }
+        });
+
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === currentId);
+        });
+      }
+
+      window.addEventListener('scroll', () => {
+        highlightNav();
+        backBtn.style.display = (window.scrollY > 400) ? 'grid' : 'none';
+      });
+
+      backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      highlightNav();
+    })();
+  </script>
+</body>
+</html>
